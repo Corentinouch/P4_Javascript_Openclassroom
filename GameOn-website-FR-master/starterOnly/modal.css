@@ -16,7 +16,6 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -204,6 +203,31 @@ main {
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+}
+
+.modalConfirm {
+  height: 776px;
+}
+
+.modalConfirm button {
+  position: absolute;
+  bottom: 5%;
+  left: 39%;
+  background: red;
+  border: red 1px solid;
+  color: white;
+  padding: 6px 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-body-confirm {
+  display: grid;
+  height: 100%;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  font-size: larger;
 }
 
 label {
@@ -494,7 +518,6 @@ input[data-error]::after {
 
 .btn-signup {
   outline: none;
-  text-transform: capitalize;
   font-size: 1.3rem;
   padding: 15px 23px;
   margin: 0;
