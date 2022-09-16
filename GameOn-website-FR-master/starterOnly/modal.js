@@ -18,10 +18,10 @@ const msgConfirm = document.querySelector(".content");
 
 sendBtn.addEventListener("click", sending);
 
-
 /**
  * Permet d'envoyer le formulaire
  * @param {Event} event 
+ * @return Confirm message
  */
 function sending(event) {
   event.preventDefault();
@@ -46,10 +46,19 @@ function sending(event) {
 
 let regexName = /^[A-Za-z - éèàùîûôê]+$/;
 let regexMail = /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi;
+//No match with "e" and "-", match with all digit, global and multiline
 let regexNum = /^[^e-][\d]*$/gm;
 
+/**
+ * Vérification du formulaire grâce aux regex et nombre de caractères (supérieur à 2)
+ * 
+ * @param {input} input correspondant du formulaire
+ * @param {regex} regex correspondant en fonction du champs
+ * @param {errorTag} errorTag balise associé à l'input pour afficher le message d'erreur
+ * @param {errorMessage} errorMessage Message d'erreur spécifique
+ * @return true sans erreur ou false avec erreur
+ */
 
-//Vérification du formulaire grâce au regex
 function verifyInput(input, regex, errorTag, errorMessage) {
   let result = input.value.match(regex);
   if (result && input.value.length >= 2) {
@@ -63,7 +72,8 @@ function verifyInput(input, regex, errorTag, errorMessage) {
   }
 }
 
-//Vérification formulaire sans restriction de nb de caractères
+//Vérification du formulaire grâce au regex et nombre de caractères (inférieur à 2)
+
 function verifyInputRegex(input, regex, errorTag, errorMessage) {
   let filter = input.value.match(regex);
   if (filter && input.value.length <= 2) {
@@ -77,7 +87,8 @@ function verifyInputRegex(input, regex, errorTag, errorMessage) {
   }
 }
 
-//Prénom
+
+//Check first name validation
 
 let firstName = document.getElementById('first');
 let firstNameError = document.getElementById('firstNameErrorMsg')
@@ -87,7 +98,8 @@ function checkFirstName() {
 };
 firstName.addEventListener("change", checkFirstName);
 
-//Nom
+
+//Check last name validation
 
 let lastName = document.getElementById('last');
 let lastNameError = document.getElementById('lastNameErrorMsg')
@@ -97,7 +109,8 @@ function checkLastName() {
 };
 lastName.addEventListener("change", checkLastName);
 
-//Email
+
+//Check email validation
 
 let email = document.getElementById('email');
 let emailError = document.getElementById('emailErrorMsg')
@@ -107,7 +120,9 @@ function checkEmail() {
 };
 email.addEventListener("change", checkEmail);
 
-//Date
+
+//Check birthdate validation
+
 let birthdate = document.getElementById("birthdate");
 let birthdateError = document.getElementById('birthdateErrorMsg');
 
@@ -124,7 +139,8 @@ function checkBirthdate() {
 };
 birthdate.addEventListener("change", checkBirthdate);
 
-//Number of tournament
+
+//Check number of tournament validation
 
 let quantity = document.getElementById('quantity');
 let quantityError = document.getElementById('quantityErrorMsg');
@@ -134,7 +150,9 @@ function checkQuantity() {
 };
 quantity.addEventListener("change", checkQuantity);
 
-// Location
+
+// Check location of tournament validation
+
 let locationTown = document.querySelectorAll('input[type=radio]')
 let locationTownError = document.getElementById("locationTownError");
 
@@ -160,7 +178,7 @@ for (let i = 0; i < locationTown.length; i++) {
 };
 
 
-//Checkbox condition
+//Check box condition validation
 
 let checkedCondition = document.getElementById('checkbox1');
 let checkConditionError = document.getElementById('checkedErrorMsg');

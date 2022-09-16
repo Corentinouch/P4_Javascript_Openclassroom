@@ -101,8 +101,6 @@ img {
   }
 }
 
-
-
 @media screen and (max-width: 540px) {
   .topnav a {
     display: none;
@@ -608,5 +606,43 @@ footer {
 
   to {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width:768px){
+  body{
+    display: grid;
+    grid-template-rows: 0.3fr 0.7fr;
+  }
+  .topnav{
+    overflow: unset;
+  }
+  .main-navbar{
+    float: right;
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    background: white;
+    border-radius: 20px;
+
+  }
+  .responsive .main-navbar{
+    box-shadow: 2px 3px 3px;
+  }
+  main{
+    position: relative;
+    margin:unset;
+  }
+  .bground{
+    position: absolute;
+    bottom:0;
+    height:unset;
+    width: 100%;
+    background-color: unset;
+  }
+  .content{
+    max-width: unset;
+    margin:unset;
+    height: 100%;
   }
 }
