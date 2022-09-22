@@ -627,6 +627,7 @@ footer {
   }
   .responsive .main-navbar{
     box-shadow: 2px 3px 3px;
+    position: absolute;
   }
   main{
     position: relative;
